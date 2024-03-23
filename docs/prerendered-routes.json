@@ -1,0 +1,13 @@
+{
+  "routes": [
+    "/",
+    "/about-us",
+    "/add product",
+    "/cart",
+    "/cart-count",
+    "/contact-us",
+    "/login",
+    "/register",
+    "/test"
+  ]
+}
