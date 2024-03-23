@@ -1,0 +1,24 @@
+<div class="container ">
+    <div class="product-card position-relative">
+        @if (productDetails.stock) {
+            <div class="stock_status in_stock_color">
+              in stock
+            </div>
+          }@else {
+            <div class="stock_status out_stock_color">
+              out of stock
+            </div>
+          }
+        <div class="product-image">
+            <!-- Add your image here -->
+            <img [src]="productDetails.images[0]" alt="Product Image" />
+        </div>
+        <div class="product-details">
+            <h2 class="product-title">{{ productDetails.title }}</h2>
+            <h4 class="product-price">{{ productDetails.price }} LE</h4>
+            <p class="product-description">{{ productDetails.description }} LE</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+            <button class="view-btn">View</button>
+        </div>
+    </div>
+</div>

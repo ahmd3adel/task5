@@ -1,0 +1,55 @@
+<form #loginForm="ngForm" (ngSubmit)="handleSubmit(loginForm)">
+    <h1 class="text-capitalize">login | template driven</h1>
+    <hr>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+       type="email"
+       name="email"
+       ngModel
+       required
+       pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+       maxlength="20"
+       #email="ngModel"
+        class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        @if (email.invalid && (email.touched || email.dirty || loginForm.submitted)) {
+            <div id="emailHelp" class="form-text text-danger">
+                @if (email.errors?.['required']) {
+                    this field is required
+                }
+                @if (email.errors?.['pattern']) 
+                {
+                    enter valid email
+                }
+            </div>
+        }
+    </div>
+    
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password"
+       name="password" 
+       ngModel
+       required
+       minlength="3"
+       #password="ngModel"
+        class="form-control"
+         id="exampleInputPassword1">
+         @if (password.touched && password.invalid) {
+            <div id="emailHelp" class="form-text text-danger">
+                @if (password.errors?.['required']) {
+                    this field is required
+                }
+                @if (password.errors?.['minlength']) {
+                    minimum length is 3 char
+                }
+            </div>
+        }
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <!-- <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button> -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

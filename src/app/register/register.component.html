@@ -1,0 +1,51 @@
+<form [formGroup]="newUser" (ngSubmit)="handleRegister()">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" formControlName="email">
+      @if (newUser.controls['email'].touched && newUser.controls['email'].invalid) {
+        <div id="emailHelp" class="form-text text-danger">
+        @if (newUser.controls['email'].errors?.['required']) {
+          this feild required
+        }
+        @if (newUser.controls['email'].errors?.['email']) {
+          write a valid email
+        }
+      </div>
+      }
+
+    </div>
+    <div class="mb-3">
+      <label class="form-label">User name</label>
+      <input type="text" class="form-control" formControlName="name">
+      @if (newUser.controls['name'].touched && newUser.controls['name'].invalid) {
+        <div id="emailHelp" class="form-text text-danger">
+        @if (newUser.controls['name'].errors?.['required']) {
+          this feild required
+        }
+        @if (newUser.controls['name'].errors?.['pattern']) {
+          username must not contain white spaces
+        }
+      </div>
+      }
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password">
+      @if (newUser.controls['password'].touched && newUser.controls['password'].invalid) {
+        <div id="emailHelp" class="form-text text-danger">
+        @if (newUser.controls['password'].errors?.['required']) {
+          this feild required
+        }
+        @if (newUser.controls['password'].errors?.['pattern']) {
+          username must contain at least 1 digit , 1 upper and lower case , 
+        }
+      </div>
+      }
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">confirm Password</label>
+      <input type="password" class="form-control" formControlName="name">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

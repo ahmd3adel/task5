@@ -1,0 +1,10 @@
+.new_active{
+    color: red;
+}
+
+.cart a{
+    color: black;
+}
+.number{
+position: absolute;
+}

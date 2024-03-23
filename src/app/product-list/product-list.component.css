@@ -1,0 +1,12 @@
+.stock_status{
+    position: absolute;
+    color: white;
+    padding: 12px;
+    margin: 20px;
+}
+.in_stock_color{
+    background-color: green;
+}
+.out_stock_color{
+    background-color: red;
+}
